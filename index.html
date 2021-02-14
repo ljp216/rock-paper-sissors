@@ -7,10 +7,10 @@
 </head>
 <body>
     <script>
-        // let playerSelection = prompt("Rock, Paper or sissors?"); ask the player what they want to choose
+
 
         let computerPlay = () => {
-            let num = Math.floor(((Math.random() * 3) + 1)); // randomly assign a number of 1, 2 or 3
+            let num = Math.floor(((Math.random() * 3) + 1)); // randomly assign a number of 1, 2 or 3 to avriable num
             if (num === 1){
                 return "paper";
             } else if (num === 2){
@@ -25,35 +25,48 @@
             let playerChoice = prompt("Rock, Paper or sissors?");
             let computerChoice = computerPlay();
             console.log(computerChoice);
-            while(playerChoice.toLowerCase() !== "rock" && playerChoice.toLowerCase() !== "paper" && playerChoice.toLowerCase() !== "sissors"){
-                playerChoice = prompt("Please enter a valid word");
+            while(playerChoice.toLowerCase() !== "rock" && 
+                    playerChoice.toLowerCase() !== "paper" && 
+                    playerChoice.toLowerCase() !== "sissors"){ // check input
+                playerChoice = prompt("Please enter a valid word"); // if input isnt valid ask again 
             }
 
             if(playerChoice.toLowerCase() === "rock" && computerChoice === "sissors"){
-                console.log("Player wins!"); // rock beats sissors
+                return "Player wins!"; // rock beats sissors
             } else if(computerChoice === "rock" && playerChoice.toLowerCase() === "sissors"){
-                console.log("Computer wins"); // rock beats sissors
+                return "Computer wins"; // rock beats sissors
             } else if(playerChoice.toLowerCase() === "paper" && computerChoice === "rock"){
-                console.log("Player wins!"); // paper beats rock
+                return "Player wins!"; // paper beats rock
             } else if (computerChoice === "paper" && playerChoice.toLowerCase() === "rock"){
-                console.log("Computer wins"); // paper beats rock
+                return "Computer wins"; // paper beats rock
             } else if(playerChoice.toLowerCase() === "sissors" && computerChoice === "paper"){
-                console.log("Player wins!");   // sissors beats paper
+                return "Player wins!";   // sissors beats paper
             }else if(computerChoice === "sissors" && playerChoice.toLowerCase() === "paper"){
-                console.log("Computer wins"); // sissors beats paper
+                return "Computer wins"; // sissors beats paper
             } else if (computerChoice === playerChoice.toLowerCase()){
-                console.log("tied game"); // no winner
+                return "tied game"; // no winner
             }
         
     
 
         };
-        playRound();
+       // console.log(playRound());
 
         let game = () => {
+            let playerWinCount = 0; 
+            let computerWinCount = 0; // two variables to store the number of wins
             // play 5 rounds 
+            for(let i = 0; i < 5; i++){
+                let score = playRound();
+                if (score === "Computer wins"){
+                    computerWinCount++;
+                } else if (score === "Player wins!"){
+                    playerWinCount++;
+                } 
+            } return `The player scored ${playerWinCount} and the computer scored ${computerWinCount}`;
             // who wins?? 
         }
+        console.log(game())
     </script>
 </body>
 </html>
