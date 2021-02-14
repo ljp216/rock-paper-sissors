@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper sissors!</title>
+</head>
+<body>
+    <script>
+        let playerSelection = prompt("Rock, Paper or sissors?"); // ask the player what they want to choose
+
+        let computerPlay = () => {
+            let choice = Math.floor(((Math.random() * 3) + 1)); // randomly assign a number of 1, 2 or 3
+            if (choice === 1){
+                return "paper";
+            } else if (choice === 2){
+                return "rock";
+            }else if(choice === 3){
+                return "sissors"
+            }
+        }; 
+
+        console.log(computerPlay());
+        console.log(computerPlay());
+        console.log(computerPlay());
+
+
+        let playRound = (playerChoice, computerChoice) => {
+            // rock beats sissors
+            // paper beats rock
+            // sissors beats paper
+        };
+
+        let game = () => {
+            // play 5 rounds 
+            // who wins?? 
+        }
+    </script>
+</body>
+</html>
