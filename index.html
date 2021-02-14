@@ -55,16 +55,25 @@
         let game = () => {
             let playerWinCount = 0; 
             let computerWinCount = 0; // two variables to store the number of wins
-            // play 5 rounds 
-            for(let i = 0; i < 5; i++){
+            
+            for(let i = 0; i < 5; i++){ // play 5 rounds 
                 let score = playRound();
                 if (score === "Computer wins"){
                     computerWinCount++;
                 } else if (score === "Player wins!"){
                     playerWinCount++;
                 } 
-            } return `The player scored ${playerWinCount} and the computer scored ${computerWinCount}`;
+            } 
             // who wins?? 
+            if(playerWinCount > computerWinCount){
+                return `You Win! You scored ${playerWinCount} and the computer scored ${computerWinCount}!`
+            } else if(playerWinCount < computerWinCount){
+                return `You lose! You scored ${playerWinCount} and the computer scored ${computerWinCount}!`
+            } else {
+                return `It's a draw! You scored ${playerWinCount} and the computer scored ${computerWinCount}!`
+            }
+        
+            
         }
         console.log(game())
     </script>
