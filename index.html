@@ -7,29 +7,48 @@
 </head>
 <body>
     <script>
-        let playerSelection = prompt("Rock, Paper or sissors?"); // ask the player what they want to choose
+        // let playerSelection = prompt("Rock, Paper or sissors?"); ask the player what they want to choose
 
         let computerPlay = () => {
-            let choice = Math.floor(((Math.random() * 3) + 1)); // randomly assign a number of 1, 2 or 3
-            if (choice === 1){
+            let num = Math.floor(((Math.random() * 3) + 1)); // randomly assign a number of 1, 2 or 3
+            if (num === 1){
                 return "paper";
-            } else if (choice === 2){
+            } else if (num === 2){
                 return "rock";
-            }else if(choice === 3){
+            }else if(num === 3){
                 return "sissors"
-            }
+            } // decides which option the computer chooses.
         }; 
 
-        console.log(computerPlay());
-        console.log(computerPlay());
-        console.log(computerPlay());
 
+        let playRound = () => {
+            let playerChoice = prompt("Rock, Paper or sissors?");
+            let computerChoice = computerPlay();
+            console.log(computerChoice);
+            while(playerChoice.toLowerCase() !== "rock" && playerChoice.toLowerCase() !== "paper" && playerChoice.toLowerCase() !== "sissors"){
+                playerChoice = prompt("Please enter a valid word");
+            }
 
-        let playRound = (playerChoice, computerChoice) => {
-            // rock beats sissors
-            // paper beats rock
-            // sissors beats paper
+            if(playerChoice.toLowerCase() === "rock" && computerChoice === "sissors"){
+                console.log("Player wins!"); // rock beats sissors
+            } else if(computerChoice === "rock" && playerChoice.toLowerCase() === "sissors"){
+                console.log("Computer wins"); // rock beats sissors
+            } else if(playerChoice.toLowerCase() === "paper" && computerChoice === "rock"){
+                console.log("Player wins!"); // paper beats rock
+            } else if (computerChoice === "paper" && playerChoice.toLowerCase() === "rock"){
+                console.log("Computer wins"); // paper beats rock
+            } else if(playerChoice.toLowerCase() === "sissors" && computerChoice === "paper"){
+                console.log("Player wins!");   // sissors beats paper
+            }else if(computerChoice === "sissors" && playerChoice.toLowerCase() === "paper"){
+                console.log("Computer wins"); // sissors beats paper
+            } else if (computerChoice === playerChoice.toLowerCase()){
+                console.log("tied game"); // no winner
+            }
+        
+    
+
         };
+        playRound();
 
         let game = () => {
             // play 5 rounds 
