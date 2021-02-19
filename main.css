@@ -29,7 +29,8 @@ button {
     font-size: 62px;
     font-weight: bold;
     white-space: pre;
-    margin-left: 25vw;
+    text-align: left;
+    margin-left: 27.5vh;
 }
 .finalScreen{
     color: white;
