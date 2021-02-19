@@ -35,10 +35,9 @@ let playRound = (x) => {
     } else if (computerChoice === playerChoice.toLowerCase()){
         return "Tied game!"; // no winner
     }
-
-
-
 };
+
+
     // console.log(playRound());
 /*
     let game = () => {
@@ -77,12 +76,19 @@ div.appendChild(para); // append to div
 
 const rock = document.querySelector('#Rock'); // variable for the rock button 
 
+let playerScore = 0; // score variables
+let computerScore = 0; // score variables 
+
 rock.addEventListener('click', () => { // event listener that plays rock if you click that button
 para.textContent = playRound("rock");
     if(para.textContent === 'Player wins!'){
         para.style.color = 'green'
+        playerScore++;
+        scoreCount();
     } else if (para.textContent === 'Computer wins'){
         para.style.color = 'red'
+        computerScore++;
+        scoreCount();
     } else {
         para.style.color = 'white'
 }
@@ -94,8 +100,12 @@ paper.addEventListener('click', () => { // event listener that plays paper if yo
 para.textContent = playRound("paper");
     if(para.textContent === 'Player wins!'){
         para.style.color = 'green';
+        playerScore++;
+        scoreCount();
     } else if (para.textContent === 'Computer wins'){
         para.style.color = 'red';
+        computerScore++;
+        scoreCount();
     } else {
         para.style.color = 'white';
     }
@@ -108,9 +118,28 @@ sissors.addEventListener('click', () => { // event listener that plays sissors i
 para.textContent = playRound("sissors");
     if(para.textContent === 'Player wins!'){
         para.style.color = 'green'
+        playerScore++;
+        scoreCount();
     } else if (para.textContent === 'Computer wins'){
         para.style.color = 'red'
+        computerScore++;
+        scoreCount();
     } else {
         para.style.color = 'white'
     }
     });
+
+let scoreCount = () => {
+    if(playerScore >= 5){
+        console.log(`Congrats you win!`)
+        playerScore = 0;
+        computerScore = 0;
+    } else if(computerScore >= 5){
+        console.log(`The computer has bested you!`)
+        playerScore = 0;
+        computerScore = 0;
+    }
+};
+
+
+
