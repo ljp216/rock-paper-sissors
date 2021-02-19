@@ -6,8 +6,8 @@ body{
 h1{
     text-align: center;
     font-size: 62px;
-    margin-top: 15vh;
     font-weight: bold;
+    margin-top: 8vh;
 }
 button {
     height : 30vh;
@@ -21,7 +21,21 @@ button {
 #gameboard {
     text-align: center;
 }
-p{
+.para{
     font-size: 62px;
     font-weight: bold;
+}
+.scoreText{
+    font-size: 62px;
+    font-weight: bold;
+    white-space: pre;
+    margin-left: 25vw;
+}
+.finalScreen{
+    color: white;
+    font-size: 62px;
+    font-weight: bold;
+    white-space: pre;
+    text-align: center;
+    margin-top: 42vh;
 }

@@ -68,16 +68,27 @@ let playRound = (x) => {
         
     }
     */
+let playerScore = 0; // score variables
+let computerScore = 0; // score variables 
 
 const div = document.querySelector('#gameboard') // create variable for div manipulation
 const para = document.createElement('p'); // create a p element
 para.classList.add('para'); 
 div.appendChild(para); // append to div 
+para.textContent = "Will you beat the machine?";
+const board = document.querySelector('#container')
+const scoreText = document.createElement('p'); // create a p element
+scoreText.classList.add('scoreText');
+board.appendChild(scoreText);
+let scoreTextContent = () =>{ 
+    let holder = `Your score: ${playerScore}
+Computers score: ${computerScore}`;
+    return holder;
+}
+
+scoreText.textContent = scoreTextContent()
 
 const rock = document.querySelector('#Rock'); // variable for the rock button 
-
-let playerScore = 0; // score variables
-let computerScore = 0; // score variables 
 
 rock.addEventListener('click', () => { // event listener that plays rock if you click that button
 para.textContent = playRound("rock");
@@ -85,9 +96,11 @@ para.textContent = playRound("rock");
         para.style.color = 'green'
         playerScore++;
         scoreCount();
+        scoreText.textContent = scoreTextContent();
     } else if (para.textContent === 'Computer wins'){
         para.style.color = 'red'
         computerScore++;
+        scoreText.textContent = scoreTextContent()
         scoreCount();
     } else {
         para.style.color = 'white'
@@ -102,10 +115,12 @@ para.textContent = playRound("paper");
         para.style.color = 'green';
         playerScore++;
         scoreCount();
+        scoreText.textContent = scoreTextContent();
     } else if (para.textContent === 'Computer wins'){
         para.style.color = 'red';
         computerScore++;
         scoreCount();
+        scoreText.textContent = scoreTextContent();
     } else {
         para.style.color = 'white';
     }
@@ -120,26 +135,45 @@ para.textContent = playRound("sissors");
         para.style.color = 'green'
         playerScore++;
         scoreCount();
+        scoreText.textContent = scoreTextContent()
     } else if (para.textContent === 'Computer wins'){
         para.style.color = 'red'
         computerScore++;
         scoreCount();
+        scoreText.textContent = scoreTextContent()
     } else {
         para.style.color = 'white'
     }
     });
 
+const finalScreen = document.createElement('p');
+finalScreen.classList.add('finalScreen')
+
 let scoreCount = () => {
     if(playerScore >= 5){
-        console.log(`Congrats you win!`)
         playerScore = 0;
         computerScore = 0;
+        console.log(`Congrats you win!`);
+        emptyContainer();
+        board.appendChild(finalScreen);
+        finalScreen.textContent = `Congrats you win!`
     } else if(computerScore >= 5){
-        console.log(`The computer has bested you!`)
-        playerScore = 0;
         computerScore = 0;
+        playerScore = 0;
+        console.log(`The computer has bested you!`)
+        emptyContainer();
+        board.appendChild(finalScreen);
+        finalScreen.textContent = `The computer has bested you!`
     }
 };
 
+let emptyContainer = () => {
+    const removeChilds = (parent) => {
+        while (parent.lastChild) {
+            parent.removeChild(parent.lastChild);
+        }
+    };
+    removeChilds(board);
+}
 
 
