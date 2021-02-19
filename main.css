@@ -38,5 +38,8 @@ button {
     font-weight: bold;
     white-space: pre;
     text-align: center;
-    margin-top: 42vh;
+    margin-top: 30vh;
+}
+.replay{
+    margin-left: 40vw;
 }

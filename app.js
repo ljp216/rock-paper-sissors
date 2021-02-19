@@ -148,6 +148,13 @@ para.textContent = playRound("sissors");
 
 const finalScreen = document.createElement('p');
 finalScreen.classList.add('finalScreen')
+const replay = document.createElement('button')
+replay.classList.add('replay')
+replay.addEventListener('click', () => { // event listener that plays paper if you click that button
+    window.location.reload()
+        });
+
+
 
 let scoreCount = () => {
     if(playerScore >= 5){
@@ -156,6 +163,8 @@ let scoreCount = () => {
         console.log(`Congrats you win!`);
         emptyContainer();
         board.appendChild(finalScreen);
+        board.appendChild(replay);
+        replay.textContent = "Will you succeed again?"
         finalScreen.textContent = `Congrats you win!`
     } else if(computerScore >= 5){
         computerScore = 0;
@@ -163,6 +172,8 @@ let scoreCount = () => {
         console.log(`The computer has bested you!`)
         emptyContainer();
         board.appendChild(finalScreen);
+        board.appendChild(replay);
+        replay.textContent = "Dare to play once more?"
         finalScreen.textContent = `The computer has bested you!`
     }
 };
