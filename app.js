@@ -75,7 +75,7 @@ const div = document.querySelector('#gameboard') // create variable for div mani
 const para = document.createElement('p'); // create a p element
 para.classList.add('para'); 
 div.appendChild(para); // append to div 
-para.textContent = "Will you beat the machine?";
+para.textContent = "First to 5 wins.";
 const board = document.querySelector('#container')
 const scoreText = document.createElement('p'); // create a p element
 scoreText.classList.add('scoreText');
